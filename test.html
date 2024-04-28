@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG 动态图像展示</title>
+  <style>
+    @keyframes floatAnimation {
+      0% {
+        transform: translate(0, 0);
+      }
+      50% {
+        transform: translate(0, -5px);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+
+    .floating-svg {
+      animation: floatAnimation 3s infinite;
+      width: 100px; /* 设置图像宽度 */
+      height: auto; /* 根据宽度等比例缩放高度 */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>SVG 图像2</h2>
+    <img src="images/image2.svg" alt="SVG 图像2">
+
+    <h2>SVG 图像1（浮动在图像2上面）</h2>
+    <img class="floating-svg" src="images/image1.svg" alt="SVG 图像1">
+  </div>
+</body>
+</html>
