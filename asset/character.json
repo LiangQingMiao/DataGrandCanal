@@ -1,0 +1,22 @@
+{
+    "nodes": [
+      {"name": "Jean Valjean", "category": 0},
+      {"name": "Fantine", "category": 1},
+      {"name": "Cosette", "category": 1},
+      {"name": "Marius Pontmercy", "category": 2},
+      {"name": "Éponine", "category": 2}
+    ],
+    "links": [
+      {"source": "Jean Valjean", "target": "Fantine"},
+      {"source": "Jean Valjean", "target": "Cosette"},
+      {"source": "Fantine", "target": "Cosette"},
+      {"source": "Cosette", "target": "Marius Pontmercy"},
+      {"source": "Marius Pontmercy", "target": "Éponine"}
+    ],
+    "categories": [
+      {"name": "Protagonist"},
+      {"name": "Supporting Character"},
+      {"name": "Antagonist"}
+    ]
+  }
+  

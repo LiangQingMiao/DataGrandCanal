@@ -39,6 +39,45 @@
 <link rel="stylesheet" href="css/swiper.min.css">
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/style.css">
+
+<style>
+  body {
+      background: #eee;
+      color: #555;
+      font-family: "Open Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+
+  p, p a {
+      font-value: 12px;
+      text-align: center;
+      color: #888;
+  }
+  .button-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .button-container button {
+            margin: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #8BC34A;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            transition-duration: 0.4s;
+        }
+
+        .button-container button:hover {
+            background-color: #7CB342;
+        }
+</style>
+<script src="js/echarts-all.js"></script>
+<script src="js/ej.js"></script>
 </head>
 <body>
 <div class="preloader" id="preloader">
@@ -115,7 +154,6 @@
         <ul>
           <li><a href="canal_channels.html">运河河道</a></li>
           <li><a href="canal_towns.html">运河城镇</a></li>
-          <li><a href="heritage_relics.html">遗产遗迹</a></li>
           <li><a href="history.html">历史沿革</a></li>
           <li><a href="related_characters.html">相关人物</a></li>
         </ul>
@@ -136,7 +174,6 @@
         <ul>
           <li><a href="canal_channels.html">运河河道</a></li>
           <li><a href="canal_towns.html">运河城镇</a></li>
-          <li><a href="heritage_relics.html">遗产遗迹</a></li>
           <li><a href="history.html">历史沿革</a></li>
           <li><a href="related_characters.html">相关人物</a></li>
         </ul>
@@ -146,7 +183,7 @@
       <!-- end search-button -->
       <!-- <div class="hamburger-menu"> -->
         <!-- <svg class="hamburger" width="30" height="30" viewBox="0 0 30 30"> -->
-          <!-- <path class="line line-top" d="M0,9h30"/> -->
+          <!-- <path class="line l  ine-top" d="M0,9h30"/> -->
           <!-- <path class="line line-center" d="M0,15h30"/> -->
           <!-- <path class="line line-bottom" d="M0,21h30"/> -->
         <!-- </svg> -->
@@ -156,13 +193,13 @@
       <!-- end navbar-button --> 
     </nav>
     <!-- end navbar -->
-	  <header class="page-header" data-background="images/page-header.jpg">
+	  <header class="page-header" data-background="images/page-header04.jpg">
 	  	<div class="inner">
 			<svg width="580" height="400" class="svg-morph">
           <path id="svg_morph" d="m261,30.4375c0,0 114,6 151,75c37,69 37,174 6,206.5625c-31,32.5625 -138,11.4375 -196,-19.5625c-58,-31 -86,-62 -90,-134.4375c12,-136.5625 92,-126.5625 129,-127.5625z" />
         </svg>
-		  	<h1>Contact Us</h1>
-			<p>For the latest updates about reopening, booking tickets and what's happening at the Museum, sign up to our newsletter</p>
+		  	<h1>相关人物</h1>
+			<p>大运河是中华民族的伟大创造，是中华文明的重要标识。回顾中国大运河两千多年的历史，毫无疑问， “人”对大运河发挥的作用，是最根本和最关键的。</p>
 		  </div>
 		  <!-- end inner -->
 	  </header>
@@ -173,141 +210,46 @@
           <div class="col-12">
             <div class="section-title text-center">
               <figure><img src="images/title-shape.png" alt="Image"></figure>
-              <h2>Help us to respond to <br>
-you more quickly</h2>
+              <h2>人物图谱</h2>
             </div>
             <!-- end section-title --> 
           </div>
           <!-- end col-12 -->
-			<div class="col-lg-5">
-			<div class="contact-box">
-				<h6>Main Contact Number</h6>
-				<p>020 3461 4444 (Monday to Friday, 9am to 5pm)</p>
-<p>Please use this number if you know the name of the person 
-or department you would like to contact. Or you can fax 
-020 3461 4771.</p>
-				</div>
-				<!-- end contact-box -->
-				<div class="contact-box">
-				<h6>General enquiries</h6>
-				<p><a href="#">enquiries@wandau.co.uk</a>
-020 3461 4878 (Monday to Friday: 10:00 - 17:00).</p>
-				</div>
-				<!-- end contact-box -->
-				<div class="contact-box">
-				<h6>Media enquiries</h6>
-				<p><a href="#">sponsor@wandau.co.uk</a>
-The person or department you would like to contact</p>
-				</div>
-				<!-- end contact-box -->
-			</div>
+          <div class="button-container">
+            <!-- 根据人物列表生成按钮 -->
+            <button onclick="showGraph('吴伯泰')">吴伯泰</button>
+            <button onclick="showGraph('伍子胥')">伍子胥</button>
+            <button onclick="showGraph('夫差')">夫差</button>
+            <button onclick="showGraph('秦始皇')">秦始皇</button>
+            <button onclick="showGraph('隋炀帝')">隋炀帝</button>
+            <button onclick="showGraph('郭守敬')">郭守敬</button>
+            <button onclick="showGraph('万恭')">万恭</button>
+            <button onclick="showGraph('翁大立')">翁大立</button>
+            <button onclick="showGraph('潘季驯')">潘季驯</button>
+            <div style="padding:20px;width:100%;height:100%; display: flex; justify-content: center; align-items: center;">
+              <div id="main" style="width: 1104px; height: 664px; -webkit-tap-highlight-color: transparent; user-select: none; background-color: rgba(0, 0, 0, 0); cursor: default;" _echarts_instance_="1565148854609">
+                  <div style="position: relative; overflow: hidden; width: 1104px; height: 664px;">
+                      <div data-zr-dom-id="bg" class="zr-element" style="position: absolute; left: 0px; top: 0px; width: 1104px; height: 664px; user-select: none;"></div>
+                      <canvas width="1104" height="664" data-zr-dom-id="0" class="zr-element" style="position: absolute; left: 0px; top: 0px; width: 1104px; height: 664px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas>
+                      <canvas width="1104" height="664" data-zr-dom-id="1" class="zr-element" style="position: absolute; left: 0px; top: 0px; width: 1104px; height: 664px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas>
+                      <canvas width="1104" height="664" data-zr-dom-id="_zrender_hover_" class="zr-element" style="position: absolute; left: 0px; top: 0px; width: 1104px; height: 664px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas>
+                      <div class="echarts-tooltip zr-element" style="position: absolute; display: none; border-style: solid; white-space: nowrap; transition: left 0.4s, top 0.4s; background-color: rgba(50, 50, 50, 0.5); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font-family: 微软雅黑, Arial, Verdana, sans-serif; padding: 5px; left: 521px; top: 205px;"><b>山东暗访十年有限公司</b></div>
+                  </div>
+              </div>
+          </div>
+          
 			<!-- end col-5 -->
-			<div class="col-lg-5">
-			<div class="contact-form">
-				<div class="mb-3">
-				<input type="text" placeholder="Complete Name">
-				</div>
-				<!-- end mb-3 -->
-				<div class="mb-3">
-				<input type="text" placeholder="E-mail Address">
-				</div>
-				<!-- end mb-3 -->
-				<div class="mb-3">
-				<input type="text" placeholder="Phone Number">
-				</div>
-				<!-- end mb-3 -->
-				<div class="mb-3">
-					<textarea placeholder="Your Message"></textarea>
-				</div>
-				<!-- end mb-3 -->
-				<div class="mb-3">
-					<input type="submit" value="Send Us">
-				</div>
-				<!-- end mb-3 -->
-				</div>
-				<!-- end contact-form -->
-			</div>
+
 			<!-- end col-5 -->
         </div>
         <!-- end row --> 
       </div>
       <!-- end container -->  
+      <div class="container"> <span class="copyright">© 2024 计算机设计大赛 | 水融千年情·数字大运河</span> </div>
     </section>
     <!-- end content-section -->
-<div class="google-maps">
-	  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10202.81803653302!2d30.552083977692742!3d50.4247130103151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cf73cbd2db91%3A0x8141e376ee29dd50!2sZvirynetske%20Cemetery!5e0!3m2!1str!2str!4v1614660000205!5m2!1str!2str"></iframe>
-	  </div>	  
+    
 	  <!-- end google-maps -->
-    <section class="content-section no-spacing" data-background="#94ffc4">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="newsletter-box">
-              <div class="form">
-                <div class="titles">
-                  <h6>Subscribe Newsletter</h6>
-                  <h2>Sign up to get the
-                    latest news</h2>
-                </div>
-                <!-- end titles -->
-                <div class="inner">
-                  <input type="email" placeholder="Enter your e-mail address">
-                  <input type="submit" value="SIGN UP">
-                </div>
-                <!-- end inner --> 
-                <small>Will be used in accordance with our <a href="#">Privacy Policy</a></small> </div>
-              <!-- end form -->
-              <figure class="newsletter-image" data-scroll data-scroll-speed="0.7"><img src="images/newsletter-image.png" alt="Image"></figure>
-            </div>
-            <!-- end newsletter-box --> 
-          </div>
-          <!-- end col-12 --> 
-        </div>
-        <!-- end row --> 
-      </div>
-      <!-- end container --> 
-    </section>
-    <!-- end content-section -->
-    <footer class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4 col-md-6">
-            <h6 class="widget-title">About Museum</h6>
-            <ul class="footer-menu">
-              <li><a href="#">About us </a></li>
-              <li><a href="#">Contact us</a></li>
-              <li><a href="#">National work</a></li>
-              <li><a href="#">International work</a></li>
-            </ul>
-          </div>
-          <!-- end col-4 -->
-          <div class="col-lg-4 col-md-6">
-            <h6 class="widget-title">Connect Us</h6>
-            <ul class="social-media">
-              <li><a href="#"><i class="fab fa-facebook-f"></i> /wandau-uk</a></li>
-              <li><a href="#"><i class="fab fa-twitter"></i> /wandau-museum</a></li>
-              <li><a href="#"><i class="fab fa-youtube"></i> /wandau-tv</a></li>
-            </ul>
-          </div>
-          <!-- end col-4 -->
-          <div class="col-lg-4">
-            <h6 class="widget-title">Visit Us Now</h6>
-            <address class="address">
-            Cromwell Road New Town SW7 <strong>London - England</strong> <i class="fas fa-info-circle"></i> +44 (0)20 7942 2000
-            </address>
-          </div>
-          <!-- end col-4 --> 
-        </div>
-        <!-- end row --> 
-      </div>
-      <!-- end container -->
-      <div class="footer-bottom">
-        <div class="container"> <span class="copyright">© 2021 Wandau | Art & History Museum</span> <span class="creation">Site created By <a href="http://www.bootstrapmb.com/">bootstrapmb</a></span> </div>
-        <!-- end container --> 
-      </div>
-      <!-- end footer-bottom --> 
-    </footer>
-    <!-- end footer --> 
   </div>
 </div>
 
@@ -322,5 +264,445 @@ The person or department you would like to contact</p>
 <script src="js/odometer.min.js"></script> 
 <script src="js/swiper.min.js"></script>
 <script src="js/scripts.js"></script>
+
+
+<script>
+  // 在页面加载完成后触发 showGraph 函数
+  window.onload = function() {
+      // 直接调用 showGraph 函数，传入你想要触发的参数
+      showGraph('潘季驯');
+  };
+</script>
+
+<script>
+  var myChart = echarts.init(document.getElementById('main'), 'macarons');
+  //创建Nodes
+  function showGraph(name) {
+    // 根据点击的按钮生成相应的关系图数据
+    // 可以根据需要自行修改生成关系图的逻辑
+    var nodes = [];
+    var links = [];
+    // 根据 name 生成相应的 nodes 和 links 数据
+    if(name == "吴伯泰"){
+          nodes = [
+        { name: "1", zs: "吴伯泰", label: "吴伯泰", category: "0" },
+        { name: "2", zs: "著述", label: "著述", category: "1" },
+        { name: "3", zs: "事件", label: "事件", category: "1" },
+        { name: "4", zs: "朝代", label: "朝代", category: "1" },
+        { name: "5", zs: "人物标签", label: "人物标签", category: "1" },
+        { name: "22", zs: "武同举", label: "武同举", category: "2" },
+        { name: "33", zs: "开凿伯泰渎", label: "开凿伯泰渎", category: "2" },
+        { name: "44", zs: "西周", label: "西周", category: "2" },
+        { name: "55", zs: "江南运河最早开凿者", label: "江南运河最早开凿者", category: "2" },
+      ]
+        //创建links
+        links = [
+          { weight: 1, source: "1", target: "2" },
+          { weight: 1, source: "1", target: "3" },
+          { weight: 1, source: "1", target: "4" },
+          { weight: 1, source: "1", target: "5" },
+          { weight: 1, source: "2", target: "22" },
+          { weight: 1, source: "3", target: "33" },
+          { weight: 1, source: "4", target: "44" },
+          { weight: 1, source: "5", target: "55" },
+          { weight: 1, source: "6", target: "66" }]   
+    }
+    else if(name == "伍子胥"){
+          nodes = [
+        { name: "1", zs: "伍子胥", label: "伍子胥", category: "0" },
+        { name: "2", zs: "君臣", label: "君臣", category: "1" },
+        { name: "3", zs: "事件", label: "事件", category: "1" },
+        { name: "4", zs: "朝代", label: "朝代", category: "1" },
+        { name: "5", zs: "人物标签", label: "人物标签", category: "1" },
+        { name: "6", zs: "敌国", label: "敌国", category: "1" },
+        { name: "22", zs: "阖闾", label: "阖闾", category: "2" },
+        { name: "33", zs: "开凿胥渎", label: "开凿胥渎", category: "2" },
+        { name: "34", zs: "开凿胥溪", label: "开凿胥溪", category: "2" },
+        { name: "35", zs: "开凿子胥渎", label: "开凿子胥渎", category: "2" },
+        { name: "44", zs: "春秋时期", label: "春秋时期", category: "2" },
+        { name: "55", zs: "运河开凿者", label: "运河开凿者", category: "2" },
+        { name: "66", zs: "勾践", label: "勾践", category: "2" },
+        { name: "67", zs: "楚庄王", label: "楚庄王", category: "2" },
+      ]
+        //创建links
+        links = [
+          { weight: 1, source: "1", target: "2" },
+          { weight: 1, source: "1", target: "3" },
+          { weight: 1, source: "1", target: "4" },
+          { weight: 1, source: "1", target: "5" },
+          { weight: 1, source: "1", target: "6" },
+          { weight: 1, source: "2", target: "22" },
+          { weight: 1, source: "3", target: "33" },
+          { weight: 1, source: "3", target: "34" },
+          { weight: 1, source: "3", target: "35" },
+          { weight: 1, source: "4", target: "44" },
+          { weight: 1, source: "5", target: "55" },
+          { weight: 1, source: "6", target: "66" },
+          { weight: 1, source: "6", target: "67" }]   
+    }
+    else if(name == "夫差"){
+          nodes = [
+        { name: "1", zs: "夫差", label: "夫差", category: "0" },
+        { name: "2", zs: "会盟", label: "会盟", category: "1" },
+        { name: "3", zs: "事件", label: "事件", category: "1" },
+        { name: "4", zs: "朝代", label: "朝代", category: "1" },
+        { name: "5", zs: "人物标签", label: "人物标签", category: "1" },
+        { name: "22", zs: "晋公午", label: "晋公午", category: "2" },
+        { name: "33", zs: "开挖菏水", label: "开挖菏水", category: "2" },
+        { name: "34", zs: "开凿邗沟", label: "开凿邗沟", category: "2" },
+        { name: "44", zs: "春秋", label: "春秋", category: "2" },
+        { name: "55", zs: "运河开凿者", label: "运河开凿者", category: "2" },
+      ]
+        //创建links
+        links = [
+          { weight: 1, source: "1", target: "2" },
+          { weight: 1, source: "1", target: "3" },
+          { weight: 1, source: "1", target: "4" },
+          { weight: 1, source: "1", target: "5" },
+          { weight: 1, source: "2", target: "22" },
+          { weight: 1, source: "3", target: "33" },
+          { weight: 1, source: "3", target: "34" },
+          { weight: 1, source: "4", target: "44" },
+          { weight: 1, source: "5", target: "55" }]   
+    }
+    else if(name == "秦始皇"){
+          nodes = [
+        { name: "1", zs: "伍子胥", label: "伍子胥", category: "0" },
+        { name: "2", zs: "君臣", label: "君臣", category: "1" },
+        { name: "3", zs: "事件", label: "事件", category: "1" },
+        { name: "4", zs: "朝代", label: "朝代", category: "1" },
+        { name: "5", zs: "人物标签", label: "人物标签", category: "1" },
+        { name: "22", zs: "监御史禄", label: "监御史禄", category: "2" },
+        { name: "33", zs: "开凿灵渠", label: "开凿灵渠", category: "2" },
+        { name: "34", zs: "开挖运河", label: "开挖运河", category: "2" },
+        { name: "35", zs: "颁布疏浚开河令", label: "颁布疏浚开河令", category: "2" },
+        { name: "44", zs: "秦", label: "秦", category: "2" },
+        { name: "55", zs: "运河开凿者", label: "运河开凿者", category: "2" }
+      ]
+        //创建links
+        links = [
+          { weight: 1, source: "1", target: "2" },
+          { weight: 1, source: "1", target: "3" },
+          { weight: 1, source: "1", target: "4" },
+          { weight: 1, source: "1", target: "5" },
+          { weight: 1, source: "1", target: "6" },
+          { weight: 1, source: "2", target: "22" },
+          { weight: 1, source: "3", target: "33" },
+          { weight: 1, source: "3", target: "34" },
+          { weight: 1, source: "3", target: "35" },
+          { weight: 1, source: "4", target: "44" },
+          { weight: 1, source: "5", target: "55" }]   
+    }
+    else if(name == "隋炀帝"){
+          nodes = [
+        { name: "1", zs: "隋炀帝", label: "隋炀帝", category: "0" },
+        { name: "2", zs: "评价", label: "评价", category: "1" },
+        { name: "3", zs: "事件", label: "事件", category: "1" },
+        { name: "4", zs: "朝代", label: "朝代", category: "1" },
+        { name: "5", zs: "人物标签", label: "人物标签", category: "1" },
+        { name: "22", zs: "皮日休", label: "皮日休", category: "2" },
+        { name: "33", zs: "开江南河", label: "开江南河", category: "2" },
+        { name: "34", zs: "开凿通济渠", label: "开凿通济渠", category: "2" },
+        { name: "35", zs: "隋炀帝的历史功绩", label: "隋炀帝的历史功绩", category: "2" },
+        { name: "36", zs: "开永济渠", label: "开永济渠", category: "2" },
+        { name: "37", zs: "疏浚邗沟", label: "疏浚邗沟", category: "2" },
+        { name: "38", zs: "开挖大运河的影响", label: "开挖大运河的影响", category: "2" },
+        { name: "44", zs: "隋", label: "隋", category: "2" },
+        { name: "55", zs: "运河开凿者", label: "运河开凿者", category: "2" }
+      ]
+        //创建links
+        links = [
+          { weight: 1, source: "1", target: "2" },
+          { weight: 1, source: "1", target: "3" },
+          { weight: 1, source: "1", target: "4" },
+          { weight: 1, source: "1", target: "5" },
+          { weight: 1, source: "2", target: "22" },
+          { weight: 1, source: "2", target: "23" },
+          { weight: 1, source: "3", target: "33" },
+          { weight: 1, source: "3", target: "34" },
+          { weight: 1, source: "3", target: "35" },
+          { weight: 1, source: "3", target: "36" },
+          { weight: 1, source: "3", target: "37" },
+          { weight: 1, source: "3", target: "38" },
+          { weight: 1, source: "4", target: "44" },
+          { weight: 1, source: "5", target: "55" }]   
+    }
+    else if(name == "郭守敬"){
+          nodes = [
+        { name: "1", zs: "郭守敬", label: "郭守敬", category: "0" },
+        { name: "2", zs: "君臣", label: "君臣", category: "1" },
+        { name: "3", zs: "事件", label: "事件", category: "1" },
+        { name: "4", zs: "朝代", label: "朝代", category: "1" },
+        { name: "5", zs: "人物标签", label: "人物标签", category: "1" },
+        { name: "6", zs: "同僚", label: "同僚", category: "1" },
+        { name: "22", zs: "忽必烈", label: "忽必烈", category: "2" },
+        { name: "23", zs: "元成宗", label: "元成宗", category: "2" },
+        { name: "33", zs: "开凿通惠河", label: "开凿通惠河", category: "2" },
+        { name: "34", zs: "弃弓走弦方案", label: "弃弓走弦方案", category: "2" },
+        { name: "35", zs: "安民山穿渠至临清通御河", label: "安民山穿渠至临清通御河", category: "2" },
+        { name: "36", zs: "修建济州河", label: "修建济州河", category: "2" },
+        { name: "37", zs: "会通河的开通", label: "会通河的开通", category: "2" },
+        { name: "44", zs: "元", label: "元", category: "2" },
+        { name: "55", zs: "都水少监", label: "都水少监", category: "2" },
+        { name: "56", zs: "都水监", label: "都水监", category: "2" },
+        { name: "57", zs: "运河规划与开凿者", label: "运河规划与开凿者", category: "2" },
+        { name: "66", zs: "韩仲晖", label: "韩仲晖", category: "2" },
+        { name: "67", zs: "史边源", label: "史边源", category: "2" },
+        { name: "68", zs: "奥鲁赤", label: "奥鲁赤", category: "2" },
+      ]
+        //创建links
+        links = [
+          { weight: 1, source: "1", target: "2" },
+          { weight: 1, source: "1", target: "3" },
+          { weight: 1, source: "1", target: "4" },
+          { weight: 1, source: "1", target: "5" },
+          { weight: 1, source: "1", target: "6" },
+          { weight: 1, source: "2", target: "22" },
+          { weight: 1, source: "2", target: "23" },
+          { weight: 1, source: "3", target: "33" },
+          { weight: 1, source: "3", target: "34" },
+          { weight: 1, source: "3", target: "35" },
+          { weight: 1, source: "3", target: "36" },
+          { weight: 1, source: "3", target: "37" },
+          { weight: 1, source: "4", target: "44" },
+          { weight: 1, source: "5", target: "55" },
+          { weight: 1, source: "5", target: "56" },
+          { weight: 1, source: "5", target: "57" },
+          { weight: 1, source: "6", target: "66" },
+          { weight: 1, source: "6", target: "67" },
+          { weight: 1, source: "6", target: "68" }
+        ]   
+    }
+    else if(name == "万恭"){
+          nodes = [
+        { name: "1", zs: "万恭", label: "万恭", category: "0" },
+        { name: "2", zs: "著述", label:"著述", category: "1" },
+        { name: "3", zs: "事件", label: "事件", category: "1" },
+        { name: "4", zs: "朝代", label: "朝代", category: "1" },
+        { name: "5", zs: "人物标签", label: "人物标签", category: "1" },
+        { name: "6", zs: "同僚", label: "同僚", category: "1" },
+        { name: "22", zs: "张佰行", label: "张佰行", category: "2" },
+        { name: "23", zs: "刘天和", label: "刘天和", category: "2" },
+        { name: "24", zs: "朱之锡", label: "朱之锡", category: "2" },
+        { name: "25", zs: "庾城秀才", label: "庾城秀才", category: "2" },
+        { name: "26", zs: "傅泽洪", label: "傅泽洪", category: "2" },
+        { name: "33", zs: "总理河道", label: "总理河道", category: "2" },
+        { name: "34", zs: "治河思想", label: "治河思想", category: "2" },
+        { name: "35", zs: "航运管理和和水量调节的操作规程", label: "航运管理和和水量调节的操作规程", category: "2" },
+        { name: "36", zs: "著《筌蹄治水》", label: "著《筌蹄治水》", category: "2" },
+        { name: "37", zs: "治黄通运的代表作", label: "治黄通运的代表作", category: "2" },
+        { name: "38", zs: "淤高滩地的经验", label: "淤高滩地的经验", category: "2" },
+        { name: "39", zs: "强调堤防作用", label: "强调堤防作用", category: "2" },
+        { name: "310", zs: "提出治河工程措施", label: "提出治河工程措施", category: "2" },
+        { name: "311", zs: "飞马报汛制度", label: "飞马报汛制度", category: "2" },
+        { name: "312", zs: "修筑堤防和治水", label: "修筑堤防和治水", category: "2" },
+        { name: "313", zs: "总结治河经验", label: "总结治河经验", category: "2" },
+        { name: "314", zs: "治理茶城北段运河", label: "治理茶城北段运河", category: "2" },
+        { name: "44", zs: "明", label: "明", category: "2" },
+        { name: "55", zs: "总理河道", label: "总理河道", category: "2" },
+        { name: "56", zs: "黄运工程治理", label: "黄运工程治理", category: "2" },
+        { name: "66", zs: "朱衡", label: "朱衡", category: "2" },
+        { name: "67", zs: "刘伯燮", label: "刘伯燮", category: "2" }
+      ]
+        //创建links
+        links = [
+          { weight: 1, source: "1", target: "2" },
+          { weight: 1, source: "1", target: "3" },
+          { weight: 1, source: "1", target: "4" },
+          { weight: 1, source: "1", target: "5" },
+          { weight: 1, source: "1", target: "6" },
+          { weight: 1, source: "2", target: "22" },
+          { weight: 1, source: "2", target: "23" },
+          { weight: 1, source: "2", target: "24" },
+          { weight: 1, source: "2", target: "25" },
+          { weight: 1, source: "2", target: "26" },
+          { weight: 1, source: "3", target: "33" },
+          { weight: 1, source: "3", target: "34" },
+          { weight: 1, source: "3", target: "35" },
+          { weight: 1, source: "3", target: "36" },
+          { weight: 1, source: "3", target: "37" },
+          { weight: 1, source: "3", target: "38" },
+          { weight: 1, source: "3", target: "39" },
+          { weight: 1, source: "3", target: "310" },
+          { weight: 1, source: "3", target: "311" },
+          { weight: 1, source: "3", target: "312" },
+          { weight: 1, source: "3", target: "313" },
+          { weight: 1, source: "3", target: "314" },
+          { weight: 1, source: "4", target: "44" },
+          { weight: 1, source: "5", target: "55" },
+          { weight: 1, source: "5", target: "56" },
+          { weight: 1, source: "6", target: "66" },
+          { weight: 1, source: "6", target: "67" }
+        ]   
+    }
+    else if(name == "翁大立"){
+          nodes = [
+        { name: "1", zs: "翁大立", label: "翁大立", category: "0" },
+        { name: "2", zs: "君臣", label:"君臣", category: "1" },
+        { name: "3", zs: "事件", label: "事件", category: "1" },
+        { name: "4", zs: "朝代", label: "朝代", category: "1" },
+        { name: "5", zs: "人物标签", label: "人物标签", category: "1" },
+        { name: "6", zs: "同僚", label: "同僚", category: "1" },
+        { name: "7", zs: "借鉴", label: "借鉴", category: "1" },
+        { name: "22", zs: "隆庆帝", label: "隆庆帝", category: "2" },
+        { name: "33", zs: "首次提出开泇河", label: "首次提出开泇河", category: "2" },
+        { name: "34", zs: "上疏朝廷", label: "上疏朝廷", category: "2" },
+        { name: "35", zs: "朱衡打通南阳至留城一段新河", label: "朱衡打通南阳至留城一段新河", category: "2" },
+        { name: "36", zs: "开凿邵家岭，修建减水闸", label: "开凿邵家岭，修建减水闸", category: "2" },
+        { name: "37", zs: "开泇河的计划不了了之", label: "开泇河的计划不了了之", category: "2" },
+        { name: "38", zs: "朱衡开凿四条支河", label: "朱衡开凿四条支河", category: "2" },
+        { name: "39", zs: "共商筑堰事宜", label: "共商筑堰事宜", category: "2" },
+        { name: "310", zs: "再次上奏请开泇口、萧县二河", label: "再次上奏请开泇口、萧县二河", category: "2" },
+        { name: "311", zs: "上奏颂扬新河", label: "上奏颂扬新河", category: "2" },
+        { name: "312", zs: "救济百姓", label: "救济百姓", category: "2" },
+        { name: "313", zs: "朱衡重提开凿新河", label: "朱衡重提开凿新河", category: "2" },
+        { name: "314", zs: "督管河道", label: "督管河道", category: "2" },
+        { name: "315", zs: "经营鸿沟境山工程", label: "经营鸿沟境山工程", category: "2" },
+        { name: "44", zs: "明", label: "明", category: "2" },
+        { name: "55", zs: "总理河道", label: "总理河道", category: "2" },
+        { name: "56", zs: "黄运工程治理", label: "黄运工程治理", category: "2" },
+        { name: "57", zs: "运河著述", label: "运河著述", category: "2" },
+        { name: "66", zs: "朱衡", label: "朱衡", category: "2" },
+        { name: "67", zs: "李承勋", label: "李承勋", category: "2" },
+        { name: "68", zs: "陈大宾", label: "陈大宾", category: "2" },
+        { name: "69", zs: "赵孔昭", label: "赵孔昭", category: "2" },
+        { name: "610", zs: "盛应期", label: "盛应期", category: "2" },
+        { name: "611", zs: "宋佐良", label: "宋佐良", category: "2" },
+        { name: "77", zs: "宋礼", label: "宋礼", category: "2" },
+      ]
+        //创建links
+        links = [
+          { weight: 1, source: "1", target: "2" },
+          { weight: 1, source: "1", target: "3" },
+          { weight: 1, source: "1", target: "4" },
+          { weight: 1, source: "1", target: "5" },
+          { weight: 1, source: "1", target: "6" },
+          { weight: 1, source: "1", target: "7" },
+          { weight: 1, source: "2", target: "22" },
+          { weight: 1, source: "3", target: "33" },
+          { weight: 1, source: "3", target: "34" },
+          { weight: 1, source: "3", target: "35" },
+          { weight: 1, source: "3", target: "36" },
+          { weight: 1, source: "3", target: "37" },
+          { weight: 1, source: "3", target: "38" },
+          { weight: 1, source: "3", target: "39" },
+          { weight: 1, source: "3", target: "310" },
+          { weight: 1, source: "3", target: "311" },
+          { weight: 1, source: "3", target: "312" },
+          { weight: 1, source: "3", target: "313" },
+          { weight: 1, source: "3", target: "314" },
+          { weight: 1, source: "3", target: "315" },
+          { weight: 1, source: "4", target: "44" },
+          { weight: 1, source: "5", target: "55" },
+          { weight: 1, source: "5", target: "56" },
+          { weight: 1, source: "5", target: "57" },
+          { weight: 1, source: "6", target: "66" },
+          { weight: 1, source: "6", target: "67" },
+          { weight: 1, source: "6", target: "68" },
+          { weight: 1, source: "6", target: "69" },
+          { weight: 1, source: "6", target: "610" },
+          { weight: 1, source: "6", target: "611" },
+          { weight: 1, source: "7", target: "77" },
+        ]   
+    }
+    else if(name == "潘季驯"){
+          nodes = [
+        { name: "1", zs: "潘季驯", label: "潘季驯", category: "0" },
+        { name: "2", zs: "君臣", label:"君臣", category: "1" },
+        { name: "3", zs: "事件", label: "事件", category: "1" },
+        { name: "4", zs: "朝代", label: "朝代", category: "1" },
+        { name: "5", zs: "人物标签", label: "人物标签", category: "1" },
+        { name: "6", zs: "同僚", label: "同僚", category: "1" },
+        { name: "7", zs: "借鉴", label: "借鉴", category: "1" },
+        { name: "22", zs: "隆庆帝", label: "隆庆帝", category: "2" },
+        { name: "22", zs: "嘉靖", label: "嘉靖", category: "2" },
+        { name: "33", zs: "黄河、运河和淮河整治", label: "黄河、运河和淮河整治", category: "2" },
+        { name: "34", zs: "负责施工留城故道", label: "负责施工留城故道", category: "2" },
+        { name: "35", zs: "再次总理河道", label: "再次总理河道", category: "2" },
+        { name: "36", zs: "第四次总理河道", label: "第四次总理河道", category: "2" },
+        { name: "37", zs: "大治邳睢决河，议筑长堤疏", label: "大治邳睢决河，议筑长堤疏", category: "2" },
+        { name: "38", zs: "两河经略疏", label: "两河经略疏", category: "2" },
+        { name: "39", zs: "河防一览", label: "河防一览", category: "2" },
+        { name: "310", zs: "一生四任总河", label: "一生四任总河", category: "2" },
+        { name: "311", zs: "第三次总理河道", label: "第三次总理河道", category: "2" },
+        { name: "312", zs: "被削职为民", label: "被削职为民", category: "2" },
+        { name: "313", zs: "辅佐工部尚书朱衡治河", label: "辅佐工部尚书朱衡治河", category: "2" },
+        { name: "314", zs: "兴工筑塞决口", label: "兴工筑塞决口", category: "2" },
+        { name: "315", zs: "勘计河工疏", label: "勘计河工疏", category: "2" },
+        { name: "316", zs: "第二次治河结束", label: "第二次治河结束", category: "2" },
+        { name: "317", zs: "第一次治河结束", label: "第一次治河结束", category: "2" },
+        { name: "44", zs: "明", label: "明", category: "2" },
+        { name: "55", zs: "总理河道", label: "总理河道", category: "2" },
+        { name: "56", zs: "黄运工程治理", label: "黄运工程治理", category: "2" },
+        { name: "57", zs: "运河著述", label: "运河著述", category: "2" },
+        { name: "66", zs: "朱衡", label: "朱衡", category: "2" },
+        { name: "67", zs: "李承勋", label: "李承勋", category: "2" },
+        { name: "68", zs: "李植", label: "李植", category: "2" },
+        { name: "69", zs: "赵孔昭", label: "赵孔昭", category: "2" },
+        { name: "610", zs: "盛应期", label: "盛应期", category: "2" },
+        { name: "611", zs: "宋佐良", label: "宋佐良", category: "2" },
+        { name: "612", zs: "何起鸣", label: "何起鸣", category: "2" },
+        { name: "613", zs: "梅国楼", label: "梅国楼", category: "2" },
+        { name: "614", zs: "张正居", label: "张正居", category: "2" },
+        { name: "615", zs: "吴桂芳", label: "吴桂芳", category: "2" },
+        { name: "616", zs: "雒遵", label: "雒遵", category: "2" },
+        { name: "617", zs: "李栋", label: "李栋", category: "2" },
+        { name: "618", zs: "傅希挚", label: "傅希挚", category: "2" },
+        { name: "77", zs: "宋礼", label: "宋礼", category: "2" },
+      ]
+        //创建links
+        links = [
+          { weight: 1, source: "1", target: "2" },
+          { weight: 1, source: "1", target: "3" },
+          { weight: 1, source: "1", target: "4" },
+          { weight: 1, source: "1", target: "5" },
+          { weight: 1, source: "1", target: "6" },
+          { weight: 1, source: "1", target: "7" },
+          { weight: 1, source: "2", target: "22" },
+          { weight: 1, source: "2", target: "23" },
+          { weight: 1, source: "3", target: "33" },
+          { weight: 1, source: "3", target: "34" },
+          { weight: 1, source: "3", target: "35" },
+          { weight: 1, source: "3", target: "36" },
+          { weight: 1, source: "3", target: "37" },
+          { weight: 1, source: "3", target: "38" },
+          { weight: 1, source: "3", target: "39" },
+          { weight: 1, source: "3", target: "310" },
+          { weight: 1, source: "3", target: "311" },
+          { weight: 1, source: "3", target: "312" },
+          { weight: 1, source: "3", target: "313" },
+          { weight: 1, source: "3", target: "314" },
+          { weight: 1, source: "3", target: "315" },
+          { weight: 1, source: "3", target: "316" },
+          { weight: 1, source: "3", target: "317" },
+          { weight: 1, source: "4", target: "44" },
+          { weight: 1, source: "5", target: "55" },
+          { weight: 1, source: "5", target: "56" },
+          { weight: 1, source: "5", target: "57" },
+          { weight: 1, source: "6", target: "66" },
+          { weight: 1, source: "6", target: "67" },
+          { weight: 1, source: "6", target: "68" },
+          { weight: 1, source: "6", target: "69" },
+          { weight: 1, source: "6", target: "610" },
+          { weight: 1, source: "6", target: "611" },
+          { weight: 1, source: "6", target: "612" },
+          { weight: 1, source: "6", target: "613" },
+          { weight: 1, source: "6", target: "614" },
+          { weight: 1, source: "6", target: "615" },
+          { weight: 1, source: "6", target: "616" },
+          { weight: 1, source: "6", target: "617" },
+          { weight: 1, source: "6", target: "618" },
+          { weight: 1, source: "7", target: "77" },
+        ]   
+    }
+    categoryArray = [{ name: "核心人物" }, { name: "属性" }, { name: "内容" }]
+        jsondata = { "categories": categoryArray, "nodes": nodes, "links": links }
+    // 清空原有的关系图   
+    myChart.clear();  
+    // 根据新的关系图数据生成关系图
+    createGraph(myChart, jsondata);
+  }
+</script>
+
 </body>
 </html>
